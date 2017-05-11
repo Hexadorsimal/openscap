@@ -1,0 +1,18 @@
+---
+- name: Install NTP Daemon
+  become: yes
+  dnf:
+    name: ntp
+    state: latest
+
+- name: Set Timezone
+  become: yes
+  timezone:
+    name: America/New_York
+
+- name: Set NTP Server
+  become: yes
+  command: ntpdate 0.rhel.pool.ntp.org
+
+- name: Enable NTP
+  command: timedatectl set-ntp yes
