@@ -3,6 +3,9 @@
 .dirstamp
 .gdb_history
 .libs/
+.vagrant/
+.idea/
+cmake-build-debug/
 .*.swp
 Makefile
 Makefile.in

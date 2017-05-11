@@ -1,0 +1,39 @@
+---
+- name: Install dependencies
+  become: yes
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - bzip2-devel
+    - dbus-devel
+    - GConf2-devel
+    - libacl-devel
+    - libblkid-devel
+    - libcap-devel
+    - libcurl-devel
+    - libgcrypt-devel
+    - libselinux-devel
+    - libxml2-devel
+    - libxslt-devel
+    - make
+    - opendbx-devel
+    - openldap-devel
+    - pcre-devel
+    - perl-XML-Parser
+    - perl-XML-XPath
+    - perl-devel
+    - python-devel
+    - python3-devel
+    - rpm-devel
+    - swig
+
+- name: Install build tools
+  become: yes
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - autoconf
+    - automake
+    - libtool
