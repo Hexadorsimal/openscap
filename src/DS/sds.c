@@ -1050,6 +1050,11 @@ int ds_sds_compose_add_component_with_ref(xmlDocPtr doc, xmlNodePtr datastream, 
 	else if (doc_type == OSCAP_DOCUMENT_OVAL_DEFINITIONS || doc_type == OSCAP_DOCUMENT_OCIL)
 	{
 		cref_parent = node_get_child_element(datastream, "checks");
+		if (cref_parent == NULL) {
+			xmlNodePtr checks = xmlNewNode(ds_ns, BAD_CAST "checks");
+			xmlAddChild(datastream, checks);
+			cref_parent = checks;
+		}
 	}
 	else
 	{
